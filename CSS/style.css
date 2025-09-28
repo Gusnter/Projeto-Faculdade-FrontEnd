@@ -1,5 +1,29 @@
+nav{
+    order: 2;
+    position: absolute;
+    left: 46%;
+    transform: translateX(-50%);
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 6px;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
 #header{
-    background-color: blue;
+    background-color: rgb(63, 63, 245);
     height: 70px;
     width: 100%;
     margin: 0%;
@@ -9,7 +33,82 @@
     position: fixed;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     box-sizing: border-box;
     z-index: 1000;
+}
+
+#imagemlogo{
+    width: 90px;
+    height: 90px;
+    order: 1;
+}
+
+#botaoempresa{
+    position: absolute;
+    order: 4;
+    width: 155px;
+    height: 35px;
+    right: 20px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+#botaoempresa:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 4px 15px black;
+    backdrop-filter: blur(10px);
+}
+
+#botaoparavoce{
+    position: absolute;
+    order: 3;
+    width: 155px;
+    height: 35px;
+    right: 200px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+}
+
+#botaoparavoce:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.3),
+        0 4px 15px black;
+    backdrop-filter: blur(10px);
+}
+
+#nav{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+}
+
+#nav li {
+    display: flex;
+    align-items: center;
 }
