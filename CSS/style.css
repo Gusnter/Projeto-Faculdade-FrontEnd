@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(imagemfundo.jpg);
+    background-image: url(../img/imagemfundo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -171,6 +171,9 @@ main {
     align-items: flex-start;
     flex-direction: column;
     gap: 60px;
+    margin-left: 60px;
+    width: calc(100% - 60px);
+    box-sizing: border-box;
 }
 
 .secao-beneficios{
@@ -247,3 +250,22 @@ main {
     margin-left: 700px;
     margin-top: -300px;
 }
+
+.aside-expansivel{
+    width: 60px;
+    height: 100vh;
+    background-color: #555;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.aside-expansivel:hover{
+    width: 200px;
+}
+
+
+
