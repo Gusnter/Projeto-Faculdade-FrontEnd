@@ -260,14 +260,82 @@ main {
     background-color: #555;
     color: white;
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
-    overflow: hidden;
     transition: width 0.3s ease;
+    z-index: 998;
+    overflow: hidden; 
 }
 
 .aside-expansivel:hover{
-    width: 200px;
+    width: 250px;
+}
+
+.aside-expansivel nav ul {
+    list-style: none;
+    padding: 20px 0; 
+    margin: 0;
+    width: 100%; 
+}
+
+.aside-expansivel nav ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px 10px;
+    gap: 15px;
+    width: 100%; 
+    box-sizing: border-box; 
+    justify-content: center; 
+    transition: all 0.3s ease; 
+}
+
+.aside-expansivel nav ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.aside-expansivel:hover nav ul li {
+    justify-content: flex-start;
+    padding-left: 20px; 
+}
+
+.aside-expansivel nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Times New Roman', Times, serif;
+    white-space: nowrap;
+    opacity: 0; 
+    width: 0; 
+    overflow: hidden; 
+    transition: all 0.3s ease; 
+}
+
+.aside-expansivel:hover nav ul li a {
+    opacity: 1;
+    width: auto; 
+}
+
+.aside-expansivel nav ul li img {
+    width: 50px;
+    height: 50px;
+    min-width: 40px; 
+    min-height: 40px; 
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+    display: block; 
+}
+
+.aside-expansivel nav ul li:hover img {
+    transform: scale(1.1); 
+}
+
+.aside-expansivel nav ul li {
+    justify-content: center; 
+}
+
+.aside-expansivel:hover nav ul li {
+    justify-content: flex-start; 
 }
 
 .avaliacoes{
