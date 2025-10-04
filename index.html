@@ -38,7 +38,22 @@
     <main>
      <section class="container-central">
             <h1 class="textocentral">BEM-VINDO AO <strong>SUPORTE XD</strong></h1>
-            <p class="textocentral"><strong>Com a XD você,</strong> proporciona uma nova experiência aos seus clientes. Com a nossa plataforma inovadora você conseguirá obter os melhores resultados.</p>
+            <div class="carrossel-texto">
+                <div class="slide-texto active">
+                    <p class="textocentral"><strong>Com a XD você,</strong> proporciona uma nova experiência aos seus clientes. Com a nossa plataforma inovadora você conseguirá obter os melhores resultados.</p>
+                </div>
+                <div class="slide-texto">
+                    <p class="textocentral"><strong>Transforme o atendimento,</strong> da sua empresa com tecnologia de ponta. Oferecemos soluções inteligentes que aumentam a satisfação dos seus clientes.</p>
+                </div>
+                <div class="slide-texto">
+                    <p class="textocentral"><strong>Suporte eficiente e ágil,</strong> para seu negócio crescer. Nossa equipe especializada está pronta para levar sua empresa ao próximo nível.</p>
+                </div>
+            </div>
+            <div class="carrossel-indicadores">
+                <span class="indicador active" data-slide="0"></span>
+                <span class="indicador" data-slide="1"></span>
+                <span class="indicador" data-slide="2"></span>
+            </div>
             <img id="imagemsuporte" src="img/imagemsuporte.png">
      </section>
      <Section id="Atividades">
@@ -233,6 +248,36 @@
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
+            });
+        });
+
+
+        let slideAtual = 0;
+        const slides = document.querySelectorAll('.slide-texto');
+        const indicadores = document.querySelectorAll('.indicador');
+        const totalSlides = slides.length;
+
+        function mostrarSlide(index){
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active')
+                indicadores[i].classList.remove('active');
+            });
+
+            slides[index].classList.add('active');
+            indicadores[index].classList.add('active');
+        }
+
+        function proximoSlide(){
+            slideAtual = (slideAtual + 1) % totalSlides;
+            mostrarSlide(slideAtual);
+        }
+
+        setInterval(proximoSlide, 8000)
+
+        indicadores.forEach((indicador, index) => {
+            indicador.addEventListener('click', () => {
+                slideAtual = index;
+                mostrarSlide(slideAtual);
             });
         });
 
