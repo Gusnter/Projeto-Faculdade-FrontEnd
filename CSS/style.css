@@ -233,7 +233,7 @@ main {
 .beneficio-item p {
     font-size: 17px;        
     margin: 0;
-    text-align: center;
+    text-align: left;
     color: black;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -241,7 +241,7 @@ main {
 .beneficio-item h3 {
     font-size: 23px;        
     margin: 0;
-    text-align: center;
+    text-align: left;
     white-space: nowrap;
     margin-top: 40px;
 }
