@@ -599,6 +599,37 @@ main {
     height: 24px;
 }
 
+
+#btnAcessibilidade {
+    position: fixed;
+    bottom: 95px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+#btnAcessibilidade:hover {
+    background-color: #218838;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+}
+
+#btnAcessibilidade svg {
+    width: 26px;
+    height: 26px;
+}
+
 footer{
     background: linear-gradient(135deg, rgb(63, 63, 245) 0%, rgb(50, 50, 200) 100%);
     color: white;
