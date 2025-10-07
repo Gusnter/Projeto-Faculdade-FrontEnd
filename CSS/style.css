@@ -574,10 +574,6 @@ main {
     margin-left: 10px; 
 }
 
-.aside-expansivel nav ul li {
-
-}
-
 .aside-expansivel:hover nav ul li {
     justify-content: flex-start;
     cursor: pointer; 
@@ -1219,4 +1215,105 @@ footer{
     .footer-bottom {
         font-size: 12px;
     }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+#chatbot-button {
+  position: fixed;
+  bottom: 160px;
+  right: 25px;
+  background-color: #007bff;
+  color: white;
+  font-size: 24px;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+#chatbot-button:hover {
+  background-color: #0056b3;
+}
+
+/* Janela do chat */
+#chatbot-window {
+  display: none;
+  position: fixed;
+  bottom: calc(200px + 25px);
+  right: 25px;
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  overflow: hidden;
+  flex-direction: column;
+   z-index: 2000;
+}
+
+#chatbot-header {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#chatbot-body {
+  height: 250px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.bot-message, .user-message {
+  margin-bottom: 8px;
+  padding: 8px;
+  border-radius: 8px;
+  max-width: 80%;
+}
+
+.bot-message {
+  background: #f1f1f1;
+  align-self: flex-start;
+}
+
+.user-message {
+  background: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+#chatbot-footer {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#user-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+#send-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+#close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
 }
