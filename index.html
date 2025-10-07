@@ -8,19 +8,41 @@
 </head>
 <body>
     <header id="header">
-        <button id="botaoempresa" type="button" onclick="alert">Para Sua Empresa</button>
-        <button id="botaoparavoce" type="button" onclick="alert">Para Você</button>
-        <img id="imagemlogo" src="img/xdbranca.png" alt="Logo">
-        <nav>
-            <ul id="nav">
-                <li><a href="#Atividades">Atividades</a></li>
-                <li><a href="#Benefícios">Benefícios</a></li>
-                <li><a href="#Avaliações">Avaliações</a></li>
-                <li><a href="#Contato">Contato</a></li>
-            </ul>
-        </nav>
+    <img id="imagemlogo" src="img/xdbranca.png" alt="Logo">
+    
+    <nav id="nav-desktop">
+        <ul id="nav">
+            <li><a href="#Atividades">Atividades</a></li>
+            <li><a href="#Benefícios">Benefícios</a></li>
+            <li><a href="#Avaliações">Avaliações</a></li>
+            <li><a href="#Contato">Contato</a></li>
+        </ul>
+    </nav>
 
-    </header>
+    <div class="header-buttons-desktop">
+        <button id="botaoparavoce" type="button">Para Você</button>
+        <button id="botaoempresa" type="button">Para Sua Empresa</button>
+    </div>
+
+    <button id="menu-toggle" class="menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div id="nav-menu-mobile" class="nav-menu-mobile">
+        <ul>
+            <li><a href="#Atividades">Atividades</a></li>
+            <li><a href="#Benefícios">Benefícios</a></li>
+            <li><a href="#Avaliações">Avaliações</a></li>
+            <li><a href="#Contato">Contato</a></li>
+        </ul>
+        <div class="header-buttons-mobile">
+            <button type="button">Para Você</button>
+            <button type="button">Para Sua Empresa</button>
+        </div>
+    </div>
+</header>
     <aside class="aside-expansivel">
         <nav>
          <ul>
@@ -290,6 +312,32 @@
                 slideAtual = index;
                 mostrarSlide(slideAtual);
             });
+        });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu-mobile');
+
+        menuToggle.addEventListener('click', function(){
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const navLinks = document.querySelectorAll('.nav-menu-mobile a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            })
+        })
+
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            if (!isClickInsideNav && !isClickOnToggle && navMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
         });
 
     </script>

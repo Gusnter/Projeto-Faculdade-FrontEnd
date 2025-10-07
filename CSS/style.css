@@ -15,10 +15,41 @@ body{
 }
 
 nav{
-    order: 2;
-    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 30px;
     left: 46%;
-    transform: translateX(-50%);
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1002;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
 }
 
 nav ul li a {
@@ -33,20 +64,126 @@ nav ul li a {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.nav-menu-mobile {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 280px;
+    height: calc(100vh - 70px);
+    background-color: rgb(63, 63, 245);
+    padding: 30px 20px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
+
+.nav-menu-mobile.active {
+    right: 0 !important;
+}
+
+.nav-menu-mobile ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu-mobile ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-menu-mobile ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 10px;
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu-mobile ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.header-buttons-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-buttons-mobile button {
+    width: 100%;
+    height: 45px;
+    background-color: white;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.header-buttons-mobile button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+
+
 nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.15);
     color: white;
+}
+
+#nav-desktop {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+}
+
+#nav li {
+    display: flex;
+    align-items: center;
+}
+
+#nav li a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 6px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#nav li a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 #header{
     background-color: rgb(63, 63, 245);
     height: 70px;
     width: 100%;
-    margin: 0%;
-    padding: 10px;
-    top: 0%;
-    left: 0%;
+    padding: 10px 20px;
     position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -54,65 +191,63 @@ nav ul li a:hover {
     z-index: 1000;
 }
 
+.header-buttons-desktop {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
 #imagemlogo{
     width: 90px;
     height: 90px;
-    order: 1;
+    z-index: 1002;
 }
 
 #botaoempresa{
-    position: absolute;
-    order: 4;
     width: 155px;
     height: 35px;
-    right: 20px;
     background-color: white;
     border: 2px solid white;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 #botaoempresa:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    border-color: white;
     transform: translateY(-2px);
-    box-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.3),
-        0 4px 15px black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 4px 15px black;
     backdrop-filter: blur(10px);
 }
 
 #botaoparavoce{
-    position: absolute;
-    order: 3;
     width: 155px;
     height: 35px;
-    right: 200px;
     background-color: white;
     border: 2px solid white;
     border-radius: 8px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 #botaoparavoce:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: white;
-    border-color: white;
     transform: translateY(-2px);
-    box-shadow: 
-        0 0 20px rgba(255, 255, 255, 0.3),
-        0 4px 15px black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 4px 15px black;
     backdrop-filter: blur(10px);
 }
 
@@ -739,4 +874,343 @@ footer{
     height: 80px;
     margin-bottom: 15px;
     filter: brightness(0) invert(1);
+}
+
+@media (max-width: 1024px){
+    #nav li a{
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    #botaoparavoce{
+        width: 140px;
+        font-size: 15px;
+    }
+
+    #botaoempresa{
+        width: 140px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle{
+        display: flex;
+    }
+
+    main {
+        padding-top: 100px;
+    }
+
+    #nav-menu{
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 60px);
+        background-color: rgb(63, 63, 245);
+        transition: right 0.3s ease;
+    }
+
+    #nav-menu.active{
+        right: 0;
+    }
+
+    .aside-expansivel{
+        display: none;
+    }
+
+    main{
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #header {
+        height: 60px;
+    }
+
+    #imagemlogo {
+        width: 70px;
+        height: 70px;
+    }
+
+    #nav-desktop {
+        display: none;
+    }
+
+    .header-buttons-desktop {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu-mobile {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .container-central {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 40px 20px;
+    }
+
+    .container-central h1 {
+        font-size: 14px;
+    }
+
+    .slide-texto p {
+        font-size: 20px;
+    }
+
+    #imagemsuporte {
+        position: relative;
+        left: 0;
+        top: 20px;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .secao-beneficios {
+        padding: 30px 15px;
+        margin-top: 60px;
+    }
+
+    .secao-beneficios h2 {
+        font-size: 28px;
+        margin-top: 80px;
+    }
+
+    .beneficios-container {
+        gap: 30px;
+    }
+
+    .beneficio-item {
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    .beneficio-item h3 {
+        font-size: 20px;
+        white-space: normal;
+    }
+
+    .beneficio-item p {
+        font-size: 15px;
+    }
+
+    .avaliacoes {
+        margin: 50px auto;
+        padding: 40px 15px;
+    }
+
+    .avaliacoes h3 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .avaliacoes-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 10px;
+    }
+
+    .avaliacao-card {
+        padding: 25px 20px;
+    }
+
+    .avaliacao-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .avaliacao-nome {
+        font-size: 18px;
+    }
+
+    .avaliacao-empresa {
+        font-size: 13px;
+    }
+
+    .avaliacao-texto {
+        font-size: 15px;
+    }
+
+    .avaliacao-estrelas {
+        font-size: 18px;
+    }
+
+    footer {
+        padding: 40px 15px 25px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-section h3 {
+        font-size: 20px;
+    }
+
+    .footer-sobre p {
+        font-size: 14px;
+    }
+
+    .contato-item {
+        font-size: 14px;
+    }
+
+    .footer-bottom {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px){
+    #imagemlogo {
+        width: 60px;
+        height: 60px;
+    }
+
+    main {
+        padding-top: 80px;
+    }
+
+    #btnVoltarTopo {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    #btnVoltarTopo svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    #btnAcessibilidade {
+        width: 45px;
+        height: 45px;
+        bottom: 75px;
+        right: 20px;
+    }
+
+    #btnAcessibilidade svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .nav-menu-mobile {
+        width: 100%;
+    }
+
+    .nav-menu-mobile ul li a {
+        font-size: 16px;
+    }
+
+    .header-buttons-mobile button {
+        height: 40px;
+        font-size: 15px;
+    }
+
+     .container-central {
+        width: 95%;
+        padding: 30px 15px;
+    }
+
+    .container-central h1 {
+        font-size: 12px;
+    }
+
+    .slide-texto p {
+        font-size: 16px;
+    }
+
+    #imagemsuporte {
+        max-width: 250px;
+    }
+
+    .secao-beneficios h2 {
+        font-size: 22px;
+        margin-top: 50px;
+    }
+
+    .beneficio-item {
+        padding: 25px 15px;
+    }
+
+    .beneficio-item h3 {
+        font-size: 18px;
+    }
+
+    .beneficio-item p {
+        font-size: 14px;
+    }
+
+    .beneficio-item img {
+        width: 60px;
+        height: 70px;
+    }
+
+    .avaliacoes h3 {
+        font-size: 22px;
+    }
+
+    .avaliacao-card {
+        padding: 20px 15px;
+    }
+
+    .avaliacao-header {
+        gap: 12px;
+    }
+
+    .avaliacao-avatar {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+    }
+
+    .avaliacao-nome {
+        font-size: 16px;
+    }
+
+    .avaliacao-texto {
+        font-size: 14px;
+    }
+
+    .avaliacao-aspas {
+        font-size: 40px;
+    }
+
+     .footer-section h3 {
+        font-size: 18px;
+    }
+
+    .footer-sobre p {
+        font-size: 13px;
+    }
+
+    .contato-item {
+        font-size: 13px;
+    }
+
+    .rede-social {
+        width: 40px;
+        height: 40px;
+    }
+
+    .rede-social svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
 }
