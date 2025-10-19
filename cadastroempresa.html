@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Empresa - SuporteXD</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-image: url(../Projeto-Faculdade-FrontEnd/img/imagemfundo.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+        }
+
+        .signup-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        }
+
+        .logo img {
+        width: 150px;
+        height: auto;
+        }
+        
+        .logo h1 {
+            color: white;
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .signup-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark-mode .signup-container {
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode .signup-container p {
+            color: white;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: rgb(63, 63, 245);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-5px);
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-text h2 {
+            color: rgb(63, 63, 245);
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .dark-mode .header-text h2 {
+            color: #a5b4fc;
+        }
+
+        .header-text p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dark-mode .header-text p {
+            color: #ccc;
+        }
+
+        .company-badge {
+            display: inline-block;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .dark-mode .company-badge {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .dark-mode label {
+            color: white;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .dark-mode input,
+        .dark-mode select {
+            background-color: #2a2a2a;
+            color: white;
+            border-color: #444;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
+        }
+
+        .form-section-title {
+            color: rgb(63, 63, 245);
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .dark-mode .form-section-title {
+            color: #a5b4fc;
+            border-bottom-color: #444;
+        }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 13px;
+        }
+
+        .terms-group input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            cursor: pointer;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .terms-group label {
+            margin: 0;
+            font-weight: normal;
+            color: #666;
+        }
+
+        .dark-mode .terms-group label {
+            color: #ccc;
+        }
+
+        .terms-group a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .terms-group a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, rgb(63, 63, 245) 0%, rgb(50, 50, 200) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 15px;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .signup-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-link {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .dark-mode .login-link {
+            color: #ccc;
+        }
+
+        .login-link a {
+            color: rgb(63, 63, 245);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        #btnAcessibilidade {
+            position: fixed;
+            bottom: 95px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+        }
+
+        #btnAcessibilidade:hover {
+            background-color: #218838;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+        }
+
+        #btnAcessibilidade svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .acessibilidade-menu {
+            position: fixed;
+            bottom: 155px;
+            right: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            display: none;
+            flex-direction: column;
+            gap: 0;
+            z-index: 1001;
+            min-width: 250px;
+            animation: slideUp 0.3s ease;
+        }
+
+        body.dark-mode .acessibilidade-menu {
+            background-color: #2a2a2a;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        .acessibilidade-menu.active {
+            display: flex;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .acessibilidade-opcao {
+            padding: 15px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1em;
+            color: #333;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid #eee;
+        }
+
+        body.dark-mode .acessibilidade-opcao {
+            color: #e0e0e0;
+            border-bottom-color: #444;
+        }
+
+        .acessibilidade-opcao:last-child {
+            border-bottom: none;
+        }
+
+        .acessibilidade-opcao:hover {
+            background-color: #f0f0f0;
+        }
+
+        body.dark-mode .acessibilidade-opcao:hover {
+            background-color: #333;
+        }
+
+        .acessibilidade-opcao svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        .toggle-switch {
+            width: 40px;
+            height: 24px;
+            background-color: #ccc;
+            border-radius: 12px;
+            position: relative;
+            margin-left: auto;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-switch.active {
+            background-color: #667eea;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: left 0.3s;
+        }
+
+        .toggle-switch.active::after {
+            left: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .signup-container {
+                padding: 40px 25px;
+            }
+
+            .header-text h2 {
+                font-size: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            input, select {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .signup-btn {
+                padding: 12px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-wrapper">
+        <div class="logo">
+            <img src="img/xdazul.png" alt="Logo SuporteXD">
+        </div>
+
+        <div class="signup-container">
+            <a href="index.html" class="back-link">← Voltar</a>
+
+            <div class="header-text">
+                <h2>Cadastre sua Empresa</h2>
+                <p>Comece a usar o SuporteXD hoje</p>
+            </div>
+
+            <form id="signupForm">
+                
+                <div class="form-section-title">Dados da Empresa</div>
+
+                <div class="form-group">
+                    <label for="companyName">Nome da Empresa</label>
+                    <input type="text" id="companyName" name="companyName" required placeholder="Nome completo da empresa">
+                </div>
+
+                <div class="form-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" required placeholder="00.000.000/0000-00">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="industry">Segmento</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Selecione um segmento</option>
+                            <option value="tech">Tecnologia</option>
+                            <option value="finance">Finanças</option>
+                            <option value="health">Saúde</option>
+                            <option value="education">Educação</option>
+                            <option value="retail">Varejo</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employees">Número de Funcionários</label>
+                        <select id="employees" name="employees" required>
+                            <option value="">Selecione</option>
+                            <option value="1-10">1-10</option>
+                            <option value="11-50">11-50</option>
+                            <option value="51-100">51-100</option>
+                            <option value="101-500">101-500</option>
+                            <option value="500+">500+</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section-title">Dados de Contato</div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="(00) 0000-0000">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Corporativo</label>
+                    <input type="email" id="email" name="email" required placeholder="contato@empresa.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="website">Website (opcional)</label>
+                    <input type="url" id="website" name="website" placeholder="https://www.empresa.com">
+                </div>
+
+                <div class="form-section-title">Responsável pela Conta</div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Primeiro Nome</label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="Seu nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="Seu sobrenome">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Cargo</label>
+                    <input type="text" id="position" name="position" required placeholder="Ex: Gerente de TI">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required placeholder="Crie uma senha forte">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirme sua senha">
+                </div>
+
+                <div class="terms-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Eu concordo com os <a href="#">Termos de Serviço</a> e <a href="#">Política de Privacidade</a></label>
+                </div>
+
+                <button type="submit" class="signup-btn">Cadastrar Empresa</button>
+            </form>
+
+            <div class="login-link">
+                Já tem uma conta? <a href="loginempresa.html">Faça login aqui</a>
+            </div>
+        </div>
+    </div>
+
+    <button id="btnAcessibilidade" title="Acessibilidade">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="7" r="1.5" fill="currentColor"></circle>
+            <path d="M7 12h10"></path>
+            <path d="M9 16l-1 4"></path>
+            <path d="M15 16l1 4"></path>
+            <path d="M12 12v4"></path>
+        </svg>
+    </button>
+
+    <div id="acessibilidade-menu" class="acessibilidade-menu">
+        <button class="acessibilidade-opcao" id="dark-mode-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span>Modo Dark</span>
+            <div class="toggle-switch" id="dark-toggle-switch"></div>
+        </button>
+
+        <button class="acessibilidade-opcao" id="increase-font">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>Aumentar Fonte</span>
+        </button>
+
+        <button class="acessibilidade-opcao" id="decrease-font">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <span>Diminuir Fonte</span>
+        </button>
+    </div>
+
+    <script>
+        const btnAcessibilidade = document.getElementById('btnAcessibilidade');
+        const acessibilidadeMenu = document.getElementById('acessibilidade-menu');
+        const darkModeToggle = document.getElementById('dark-mode-toggle');        
+        const darkToggleSwitch = document.getElementById('dark-toggle-switch');
+        const body = document.body;
+        const increaseFont = document.getElementById('increase-font');
+        const decreaseFont = document.getElementById('decrease-font');
+        
+        let fontSize = 100;
+
+        btnAcessibilidade.addEventListener('click', () => {
+            acessibilidadeMenu.classList.toggle('active');
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#btnAcessibilidade') && 
+                !e.target.closest('#acessibilidade-menu')) {
+                acessibilidadeMenu.classList.remove('active');
+            }
+        });
+
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            darkToggleSwitch.classList.toggle('active');
+        });
+
+        increaseFont.addEventListener('click', () => {
+            fontSize = Math.min(fontSize + 10, 150);
+            body.style.fontSize = fontSize + '%';
+        });
+
+        decreaseFont.addEventListener('click', () => {
+            fontSize = Math.max(fontSize - 10, 80);
+            body.style.fontSize = fontSize + '%';
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('As senhas não correspondem!');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('A senha deve ter pelo menos 6 caracteres!');
+                return;
+            }
+
+            const companyName = document.getElementById('companyName').value;
+            const firstName = document.getElementById('firstName').value;
+
+            alert(`Bem-vindo ${firstName}! Cadastro de ${companyName} realizado com sucesso! (Este é um exemplo)`);
+        });
+    </script>
+</body>
+</html>
