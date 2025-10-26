@@ -16,10 +16,10 @@ body{
 }
 
 body.dark-mode{
-    background-color: #1a1a1a;
+    background-color: #16213e;
     background-image: none;
     color: #e0e0e0;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    
 }
 
 body.dark-mode header{
@@ -305,7 +305,7 @@ body.dark-mode .textocentral{
     text-align: justify;
     margin-right: auto;
     margin-left: 200px;
-    margin-top: 20px;
+    margin-top: -50px;
 }
 
 section {
@@ -422,7 +422,7 @@ body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode p {
     text-align: center;
     margin: 0 auto;
     padding: 40px 20px;
-    margin-top: 120px;
+    margin-top: -600px;
 }
 
 .secao-beneficios strong{
@@ -637,6 +637,7 @@ body.dark-mode .beneficio-item {
     text-align: center;
     margin: 100px auto;
     padding: 60px 20px;
+    margin-top: -120px;
 }
 
 .avaliacoes h3{
@@ -933,6 +934,7 @@ footer{
     padding: 50px 20px 30px;
     width: 100%;
     box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.3);
+    margin-top: -300px;
 }
 
 body.dark-mode footer {
