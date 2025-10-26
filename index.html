@@ -341,14 +341,6 @@
 
         let podeFechar = false;
 
-            window.addEventListener('beforeunload', function (e) {
-                if (!podeFechar) {
-                e.preventDefault();
-                mostrarAlerta();
-                e.returnValue = '';
-                return '';
-            }
-        });
 
             document.addEventListener('mouseout', function(e) {
                 if (e.clientY < 0 && !document.getElementById('alerta-saida').classList.contains('mostrar')) {
