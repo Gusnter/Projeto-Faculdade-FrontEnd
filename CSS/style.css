@@ -1044,6 +1044,128 @@ body.dark-mode footer {
     filter: brightness(0) invert(1);
 }
 
+.alerta-saida {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.alerta-saida.mostrar {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.alerta-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.3s ease;
+}
+
+body.dark-mode .alerta-box {
+    background: #2a2a3a;
+    color: white;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.alerta-icone {
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.alerta-box h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+body.dark-mode .alerta-box h3 {
+    color: white;
+}
+
+.alerta-box p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+body.dark-mode .alerta-box p {
+    color: #ccc;
+}
+
+.alerta-destaque {
+    font-weight: 600;
+    color: rgb(63, 63, 245) !important;
+    margin-top: 15px !important;
+}
+
+.alerta-botoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.btn-continuar {
+    background: rgb(63, 63, 245);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-continuar:hover {
+    background: rgb(50, 50, 200);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(63, 63, 245, 0.4);
+}
+
+.btn-sair-alerta {
+    background: #ccc;
+    color: #333;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-sair-alerta:hover {
+    background: #999;
+}
+
 @media(max-width: 1600px){
     #imagemsuporte{
         width: 550px;

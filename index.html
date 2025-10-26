@@ -316,6 +316,20 @@
         </button>
     </div>
 
+    <div id="alerta-saida" class="alerta-saida">
+    	<div class="alerta-box">
+        <div class="alerta-icone">⚠️</div>
+        <h3>Espere! Não vá ainda!</h3>
+        <p>Você ainda não conheceu todos os nossos benefícios exclusivos!</p>
+        <p class="alerta-destaque">Descubra como podemos transformar o atendimento da sua empresa! 🚀</p>
+        <div class="alerta-botoes">
+            <button class="btn-continuar" onclick="fecharAlerta()">Continuar no Site</button>
+            <button class="btn-sair-alerta" onclick="sairDoSite()">Sair</button>
+        </div>
+    </div>
+    </div>
+
+
 
     <script>
         
@@ -324,6 +338,41 @@
         const darkModeToggle = document.getElementById('dark-mode-toggle');        
         const darkToggleSwitch = document.getElementById('dark-toggle-switch');
         const body = document.body;
+
+        let podeFechar = false;
+
+            window.addEventListener('beforeunload', function (e) {
+                if (!podeFechar) {
+                e.preventDefault();
+                mostrarAlerta();
+                e.returnValue = '';
+                return '';
+            }
+        });
+
+            document.addEventListener('mouseout', function(e) {
+                if (e.clientY < 0 && !document.getElementById('alerta-saida').classList.contains('mostrar')) {
+                mostrarAlerta();
+            }
+        });
+
+            function mostrarAlerta() {
+                document.getElementById('alerta-saida').classList.add('mostrar');
+        }
+
+            function fecharAlerta() {
+                document.getElementById('alerta-saida').classList.remove('mostrar');
+        }
+
+            function sairDoSite() {
+                podeFechar = true;
+                window.close();
+                setTimeout(() => {
+                alert('Use o X do navegador para fechar a aba.');
+                fecharAlerta();
+            }, 100);
+        }
+
 
         btnAcessibilidade.addEventListener('click', () => {
             acessibilidadeMenu.classList.toggle('active');
