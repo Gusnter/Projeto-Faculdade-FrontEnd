@@ -1182,6 +1182,17 @@ body.dark-mode .alerta-box p {
     }
 }
 
+@media (max-width: 1400px){
+    #imagemsuporte{
+        width: 500px;                  
+        left: 650px;                   
+    }
+    .container-central{
+        width: 700px;                  
+        padding: 50px 60px;            
+    }
+}
+
 @media (max-width: 1200px){
     #nav-desktop {
         position: relative;           
@@ -1227,7 +1238,40 @@ body.dark-mode .alerta-box p {
     .header-buttons-desktop {
         gap: 10px;                    
     }
+
+     #imagemsuporte{
+        width: 400px;                  
+        left: 500px;                   
+        top: 50px;                     
+    }
+    .container-central{
+        width: 550px;                  
+        padding: 40px 45px;         
+        margin-left: 50px;           
+    }
+    
+    .slide-texto p {
+        font-size: 32px;              
+    }
+    
+    .avaliacoes-grid {
+        grid-template-columns: repeat(2, 1fr);  
+        gap: 20px;                     
+    }
+    
+    .beneficios-container {
+        gap: 60px;                     
+    }
+    
+    main {
+        margin-left: 0;              
+    }
+    
+    .aside-expansivel {
+        display: none;                
+    }
 }
+
 
 @media (max-width: 900px){
     #nav li a{
