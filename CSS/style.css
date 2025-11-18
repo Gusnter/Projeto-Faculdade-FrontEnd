@@ -1182,24 +1182,75 @@ body.dark-mode .alerta-box p {
     }
 }
 
+@media (max-width: 1200px){
+    #nav-desktop {
+        position: relative;           
+        left: auto;                    
+        transform: none;               
+        margin-left: auto;             
+        margin-right: 20px;            
+    }
 
-@media (max-width: 1024px){
+    #nav {
+        gap: 20px;                     
+    }
+
     #nav li a{
-        font-size: 16px;
-        padding: 12px 15px;
-    }
-
-    #botaoparavoce{
-        width: 140px;
-        font-size: 15px;
-    }
-
-    #botaoempresa{
-        width: 140px;
-        font-size: 15px;
+        font-size: 16px;         
+        padding: 12px 15px;           
     }
 }
 
+
+@media (max-width: 1024px){
+    #nav li a{
+        font-size: 14px;              
+        padding: 10px 12px;           
+    }
+
+    #nav {
+        gap: 15px;                     
+    }
+
+    #botaoparavoce{
+        width: 130px;                 
+        font-size: 14px;               
+        height: 32px;                  
+    }
+
+    #botaoempresa{
+        width: 130px;                  
+        font-size: 14px;              
+        height: 32px;                  
+    }
+
+    .header-buttons-desktop {
+        gap: 10px;                    
+    }
+}
+
+@media (max-width: 900px){
+    #nav li a{
+        font-size: 13px;               
+        padding: 8px 10px;            
+    }
+
+    #nav {
+        gap: 10px;                     
+    }
+
+    #botaoparavoce{
+        width: 120px;                  
+        font-size: 13px;               
+        height: 30px;                  
+    }
+
+    #botaoempresa{
+        width: 120px;                  
+        font-size: 13px;               
+        height: 30px;                
+    }
+}
 
 
 @media (max-width: 768px) {
@@ -1208,7 +1259,8 @@ body.dark-mode .alerta-box p {
     }
 
     main {
-        padding-top: 100px;
+        padding-top: 80px;
+        gap: 30px;
     }
 
     #nav-menu{
@@ -1264,7 +1316,8 @@ body.dark-mode .alerta-box p {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        padding: 40px 20px;
+        padding: 30px 15px;
+        margin-top: 0;
     }
 
     .container-central h1 {
@@ -1278,30 +1331,31 @@ body.dark-mode .alerta-box p {
     #imagemsuporte {
         position: relative;
         left: 0;
-        top: 20px;
+        top: 5px;
         width: 100%;
-        max-width: 300px;
+        max-width: 500px;
         margin: 0 auto;
         display: block;
     }
 
     .secao-beneficios {
-        padding: 30px 15px;
-        margin-top: 60px;
+        padding: 20px 15px;
+        margin-top: 5px;
     }
 
     .secao-beneficios h2 {
         font-size: 28px;
-        margin-top: 80px;
+        margin-top: 40px;
+        margin-bottom: 30px;
     }
 
     .beneficios-container {
-        gap: 30px;
+        gap: 20px;
     }
 
     .beneficio-item {
         max-width: 100%;
-        padding: 30px 20px;
+        padding: 25px 15px;
     }
 
     .beneficio-item h3 {
@@ -1314,23 +1368,24 @@ body.dark-mode .alerta-box p {
     }
 
     .avaliacoes {
-        margin: 50px auto;
-        padding: 40px 15px;
+        margin: 30px auto;
+        padding: 30px 15px;
+        margin-top: 10px;
     }
 
     .avaliacoes h3 {
         font-size: 28px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .avaliacoes-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
         padding: 10px;
     }
 
     .avaliacao-card {
-        padding: 25px 20px;
+        padding: 20px 15px;
     }
 
     .avaliacao-avatar {
@@ -1356,12 +1411,13 @@ body.dark-mode .alerta-box p {
     }
 
     footer {
-        padding: 40px 15px 25px;
+        padding: 30px 15px 20px;
+        margin-top: -100px;
     }
 
     .footer-container {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
 
     .footer-section h3 {
